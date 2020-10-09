@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function validateForm() {
+            var f = document.forms["form"];
+            var email = f["email"].value;
+            if (email.length < 6 || email.length > 10) {
+                alert("邮件长度必须在6到10位！");
+                return false;
+            }
+            var pass = f["pass"].value;
+            var conpass = f["conpass"].value;
+            if (pass.length < 1 || pass != conpass) {
+                alert("密码与确认密码必须相同且不为空！");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+
+<body>
+    <form name="form" action="" onsubmit="return validateForm()" method="POST">
+        邮箱：<input type="email" name="email" required><br>
+        密码：<input type="password" name="pass" required><br>
+        确认密码：<input type="password" name="conpass" required><br>
+        城市：<input type="text" name="city" required><br>
+        爱好：<input type="text" name="hobby" required><br>
+        性别：
+        <label for="male"><input type="radio" value="male" name="sex" required checked>男</label>
+        <label for="female"><input type="radio" value="female" name="sex" required>女</label>
+        <br>
+        个人介绍：<textarea name="intro" id="intro" cols="30" rows="10" required></textarea><br>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form>
+</body>
+
+</html>
